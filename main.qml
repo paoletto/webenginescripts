@@ -68,7 +68,7 @@ Window {
             WebEngineScript {
                 injectionPoint: WebEngineScript.DocumentReady
                 name: "QWebChannel"
-                sourceUrl: "qrc:///qtwebchannel/qwebchannel.js"
+                sourceUrl: "qrc:/qtwebchannel/qwebchannel.js"
             }
         ]
 //        userScripts: [

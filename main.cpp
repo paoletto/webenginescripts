@@ -1,6 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include <QDirIterator>
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +18,16 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
+
+    QDirIterator it(":/", QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        const QString next = it.next();
+        if (next.startsWith(":/QtQuick"))
+            continue;
+        if (next.startsWith(":/qt-project.org"))
+            continue;
+        qDebug() << next;
+    }
 
     return app.exec();
 }
